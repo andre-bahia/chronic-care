@@ -83,6 +83,22 @@ function mainController($timeout, $state, $scope, growlService, userAuthenticate
         this.layoutType = 0;
         var promise = userAuthenticateService.logout();
         $state.transitionTo("login");
-        
+
     }
+
+    if ($scope.userState.logged){
+      setIntervalTime(function(){
+        $http.get(service.url+ "/apontamento/atencao")
+             .then(function(response){
+               for(var notification in response.data){
+                 growlService.growl("O paciente " + notification.nome + " portador do cpf " + notification.cpf + "necessita de atenção médica", 'inverse');
+               }
+             }, function(error){
+
+             })
+
+      }, 10000)
+    }
+
+
 }
