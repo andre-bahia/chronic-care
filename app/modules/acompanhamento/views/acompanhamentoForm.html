@@ -1,0 +1,42 @@
+<div class="container">
+  <ol class="breadcrumb" style="padding: 0;">
+    <li><a href="#">Home</a></li>
+    <li><a ui-sref="acompanhamento-list">Acompanhamento</a></li>
+    <li class="active">Novo acompanhamento</li>
+  </ol>
+  <div class="card-body card-padding">
+  </div>
+  <div class="card">
+    <div class="card-header">
+      <h2></h2>
+    </div>
+    <div class="card-body card-padding">
+      <form name="formacompanhamento" role="form" novalidate ng-submit="save(acompanhamento)">
+        <div class="form-group fg-float m-b-30">
+            <p class="f-500 c-black m-b-15">Paciente</p>
+            <select chosen class="w-100" data-placeholder="Selecione o ..." ng-options="paciente.nome for paciente in pacientes" ng-model="pacienteSelecionado"
+              ng-required="!pacienteSelecionado">
+                <option value=""></option>
+            </select>
+        </div>
+        <div class="form-group fg-float m-b-30">
+            <p class="f-500 c-black m-b-15">Remédios</p>
+            <select chosen class="w-100" data-placeholder="Selecione o ..." ng-options="remedio.nome for remedio in remedios" ng-model="remedioSelecionado"
+              ng-required="!remedioSelecionado">
+                <option value=""></option>
+            </select>
+        </div>
+        <div class="row">
+          <div class="col-sm-4 m-b-20">
+            <div class="toggle-switch" data-ts-color="green">
+              <label for="ts4" class="ts-label">Status<small style="color: red;">*</small></label>
+              <input id="ts4" type="checkbox" hidden="hidden" ng-model="acompanhamento.status">
+              <label for="ts4" class="ts-helper"></label>
+            </div>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary btn-sm m-t-10" ng-disabled="formacompanhamento.$invalid">Salvar</button>
+      </form>
+    </div>
+  </div>
+</div>

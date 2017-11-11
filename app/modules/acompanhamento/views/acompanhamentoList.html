@@ -1,0 +1,40 @@
+<div class="container">
+  <div class="card-body card-padding">
+    <ol class="breadcrumb" style="padding: 0;">
+      <li><a href="#">Home</a></li>
+      <li class="active">Acompanhamento</li>      
+    </ol>
+  </div>
+  
+  <div class="card">
+    <div class="card-header">
+        <h2 >Acompanhamento <i class="zmdi zmdi-time-restore-setting"></i></h2>
+    </div>
+
+    <div class="table-responsive">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Paciente</th>
+            <th>Medicamento</th>
+            <th>Período de acompanhamento</th>            
+            <th style="text-align: center;">
+                <a ui-sref="acompanhamento-create" class="btn bgm-green waves-effect">Novo Registro <i class="zmdi zmdi-plus-circle-o zmdi-hc-fw"></i></a>                
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="p in acompanhamentos track by $index">
+            <td>{{p.paciente}}</td>
+            <td>{{p.remedio}}</td>
+            <td>{{p.periodo}} dias</td>            
+            <td style="text-align: center">
+              <a  ui-sref="acompanhamento-edit({id: m.id})" class="btn btn-info waves-effect"><i class="zmdi zmdi-edit"></i> </a>
+              <a href="javascript:void(0);" class="btn btn-danger waves-effect" ng-click="confirmRemove(m.id)"> <i class="zmdi zmdi-delete"></i></a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

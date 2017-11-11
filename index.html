@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<!--[if IE 9 ]><html class="ie9" data-ng-app="app" data-ng-controller="materialadminCtrl as mactrl"><![endif]-->
+<![if IE 9 ]>
+<html data-ng-app="app" data-ng-controller="mainController as mactrl" class="ng-cloak">
+<![endif]>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Chronic Care</title>
+
+    <!-- Vendor CSS -->
+    <link href="bower_components/animate.css/animate.min.css" rel="stylesheet">
+    <link href="bower_components/material-design-iconic-font/dist/css/material-design-iconic-font.min.css" rel="stylesheet">
+    <link href="bower_components/bootstrap-sweetalert/dist/sweetalert.css" rel="stylesheet">
+    <link href="bower_components/angular-loading-bar/src/loading-bar.css" rel="stylesheet">
+    <link href="bower_components/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.min.css" rel="stylesheet">
+    <link href="bower_components/angular-material/angular-material.min.css" rel="stylesheet">
+    <link href="bower_components/angular-material-datetimepicker/dist/material-datetimepicker.min.css" rel="stylesheet">
+    <link href="bower_components/AngularJS-Toaster/toaster.min.css" rel="stylesheet">
+    <link href="bower_components/sweetalert/dist/sweetalert.css" rel="stylesheet">
+    <link href="bower_components/chosen/chosen.css" rel="stylesheet" />
+    />
+
+
+    <!-- CSS -->
+    <link href="assets/css/app.min.1.css" rel="stylesheet" id="app-level">
+    <link href="assets/css/app.min.2.css" rel="stylesheet">
+    <link href="assets/css/demo.css" rel="stylesheet">
+    <link href="assets/css/custom.css" rel="stylesheet">
+    <link href="assets/css/multistep.css" rel="stylesheet">
+</head>
+
+<body ng-cloak data-ng-class="{ 'login-content': !userState.logged, 'sw-toggled': userState.logged}">
+        <header ng-show="userState.logged" id="header" data-current-skin={{mactrl.currentSkin}} data-ng-include="'app/modules/base/views/header.html'" data-ng-controller="headerController as hctrl"></header>
+        <section ng-cloak id="main">
+            <div ng-show="userState.logged" id="sidebar" data-ng-include="'app/modules/base/views/sidebar-left.html'" data-ng-class="{ 'toggled': mactrl.sidebarToggle.left === true }"></div>
+            <section id="content" class="page-view" data-ui-view></section>
+        </section>
+        <footer ng-show="userState.logged" id="footer" data-ng-include="'app/modules/base/views/footer.html'"></footer>
+    <!-- Older IE warning message -->
+    <!--[if lt IE 9]>
+            <div class="ie-warning">
+                <h1 class="c-white">Warning!!</h1>
+                <p>You are using an outdated version of Internet Explorer, please upgrade <br/>to any of the following web browsers to access this website.</p>
+                <div class="iew-container">
+                    <ul class="iew-download">
+                        <li>
+                            <a href="http://www.google.com/chrome/">
+                                <img src="assets/img/browsers/chrome.png" alt="">
+                                <div>Chrome</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.mozilla.org/en-US/firefox/new/">
+                                <img src="assets/img/browsers/firefox.png" alt="">
+                                <div>Firefox</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="http://www.opera.com">
+                                <img src="assets/img/browsers/opera.png" alt="">
+                                <div>Opera</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.apple.com/safari/">
+                                <img src="assets/img/browsers/safari.png" alt="">
+                                <div>Safari</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="http://windows.microsoft.com/en-us/internet-explorer/download-ie">
+                                <img src="assets/img/browsers/ie.png" alt="">
+                                <div>IE (New)</div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <p>Sorry for the inconvenience!</p>
+            </div>
+        <![endif]-->
+
+    <toaster-container toaster-options="options"></toaster-container>
+
+    <!-- Core -->
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+
+    <!-- Angular -->
+    <script src="bower_components/angular/angular.min.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.min.js"></script>
+    <script src="bower_components/angular-resource/angular-resource.min.js"></script>
+    <script src="bower_components/angular-aria/angular-aria.min.js"></script>
+    <script src="bower_components/angular-material/angular-material.min.js"></script>
+    <script src="bower_components/angular-cookies/angular-cookies.js"></script>
+
+
+        <!-- Angular Modules -->
+    <script src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+    <script src="bower_components/angular-loading-bar/src/loading-bar.js"></script>
+    <script src="bower_components/oclazyload/dist/ocLazyLoad.min.js"></script>
+    <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+    <script src="bower_components/angular-messages/angular-messages.js"></script>
+
+
+    <!-- Common Vendors -->
+    <script src="bower_components/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="bower_components/bootstrap-sweetalert/dist/sweetalert.min.js"></script>
+    <script src="bower_components/Waves/dist/waves.min.js"></script>
+    <script src="vendors/bootstrap-growl/bootstrap-growl.min.js"></script>
+    <script src="vendors/angular-uuid/angular-uuid.js"></script>
+    <script src="vendors\input-mask\input-mask.js"></script>
+    <script src="vendors\fileinput\fileinput.min.js"></script>
+
+    <!-- Module viaCEP -->
+    <script src="bower_components/angular-viacep/dist/angular-viacep.min.js"></script>
+
+    <!--<script src="bower_components/ng-table/dist/ng-table.min.js"></script>-->
+
+    <!-- Placeholder for IE9 -->
+    <!--[if IE 9 ]>
+            <script src="vendors/bower_components/jquery-placeholder/jquery.placeholder.min.js"></script>
+        <![endif]-->
+
+    <!-- Using below vendors in order to avoid misloading on resolve -->
+    <script src="bower_components/moment/min/moment.min.js"></script>
+    <script src="assets/lang/pt-br.js"></script>
+    <script src="bower_components/angular-nouislider/src/nouislider.min.js"></script>
+    <script src="bower_components/angular-material-datetimepicker/dist/angular-material-datetimepicker.min.js"></script>
+    <script src="bower_components/AngularJS-Toaster/toaster.min.js"></script>
+    <script src="bower_components/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="bower_components/ngSweetAlert/SweetAlert.min.js"></script>
+    <script src="assets/js/utils/date.js"></script>
+
+
+    <!-- App level -->
+    <script src="app/app.js"></script>
+    <script src="app/modules/base/services/localConfiguration.js"></script>    
+    <!-- Module base -->
+    <script src="app/modules/base/module.js"></script>
+    <script src="app/modules/base/routes.js"></script>
+    <script src="app/modules/base/controllers/mainController.js"></script>
+    <script src="app/modules/base/controllers/headerController.js"></script>
+    <script src="app/modules/base/controllers/ui-bootstrap.js"></script>
+    <script src="app/modules/base/controllers/table.js"></script>
+    <script src="app/modules/base/services/middleware.js"></script>    
+    <script src="app/modules/base/services/growlService.js"></script>
+    <script src="app/modules/base/services/messageService.js"></script>
+    <script src="app/modules/base/services/perfilService.js"></script>
+    <script src="app/modules/base/services/userAuthenticateService.js"></script>
+    <script src="app/modules/base/services/authenticationService.js"></script>
+    <script src="app/modules/base/services/cookieService.js"></script>
+    <script src="app/modules/base/directives/template.js"></script>
+    <script src="app/modules/base/directives/form.js"></script>
+    <script src="app/modules/base/directives/uploudFile.js"></script>
+
+    <!-- Module login -->
+    <script src="app/modules/login/module.js"></script>
+    <script src="app/modules/login/routes.js"></script>
+    <script src="app/modules/login/controllers/loginController.js"></script>
+
+    <script src="bower_components/chosen/chosen.jquery.js"></script>
+    <script src="bower_components/angular-chosen-localytics/dist/angular-chosen.min.js"></script>
+
+    <!-- Module usuario -->
+    <script src="app/modules/usuario/module.js"></script>
+    <script src="app/modules/usuario/routes.js"></script>
+    <script src="app/modules/usuario/controllers/usuarioControllerList.js"></script>
+    <script src="app/modules/usuario/controllers/usuarioControllerCreate.js"></script>
+    <script src="app/modules/usuario/controllers/usuarioControllerEdit.js"></script>
+    <script src="app/modules/usuario/models/usuarioModel.js"></script>
+    <script src="app/modules/usuario/services/usuarioService.js"></script>
+
+    <!-- Module paciente -->
+    <script src="app/modules/paciente/module.js"></script>
+    <script src="app/modules/paciente/routes.js"></script>
+    <script src="app/modules/paciente/controllers/pacienteControllerList.js"></script>
+    <script src="app/modules/paciente/models/pacienteModel.js"></script>
+    <script src="app/modules/paciente/services/pacienteService.js"></script>
+
+    <!-- Module medicamentos -->
+    <script src="app/modules/medicamento/module.js"></script>
+    <script src="app/modules/medicamento/routes.js"></script>
+    <script src="app/modules/medicamento/controllers/medicamentoControllerList.js"></script>
+    <script src="app/modules/medicamento/models/medicamentoModel.js"></script>
+    <script src="app/modules/medicamento/services/medicamentoService.js"></script>
+
+    <!-- Module medicamentos -->
+    <script src="app/modules/acompanhamento/module.js"></script>
+    <script src="app/modules/acompanhamento/routes.js"></script>
+    <script src="app/modules/acompanhamento/controllers/acompanhamentoControllerList.js"></script>
+    <script src="app/modules/acompanhamento/controllers/acompanhamentoControllerCreate.js"></script>    
+    <script src="app/modules/acompanhamento/models/acompanhamentoModel.js"></script>
+    <script src="app/modules/acompanhamento/services/acompanhamentoService.js"></script>
+</body>
+</html>

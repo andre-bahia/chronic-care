@@ -1,0 +1,1 @@
+var acompanhamento = angular.module("acompanhamento", []);

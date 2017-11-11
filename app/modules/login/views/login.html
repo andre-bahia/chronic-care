@@ -1,0 +1,53 @@
+    <!-- Login -->
+    <div class="lc-block" id="l-login" data-ng-class="{ 'toggled': login === 1 }" data-ng-if="login === 1">
+        <form name="loginForm">
+            <div class="input-group m-b-20">
+                <span class="input-group-addon"><i class="zmdi zmdi-account"></i></span>
+                <div class="fg-line">
+                    <input type="text" class="form-control" placeholder="Usuário" ng-model="usuario.usuario" required>
+                </div>
+            </div>
+
+            <div class="input-group m-b-20">
+                <span class="input-group-addon"><i class="zmdi zmdi-lock"></i></span>
+                <div class="fg-line">
+                    <input type="password" class="form-control" placeholder="Senha" ng-model="usuario.senha" required>
+                </div>
+            </div>
+
+            <div class="clearfix"></div>
+
+            <!--<div class="checkbox">-->
+                <!--<label>-->
+                    <!--<input type="checkbox" value="">-->
+                    <!--<i class="input-helper"></i>-->
+                    <!--Keep me signed in-->
+                <!--</label>-->
+            <!--</div>-->
+
+            <a href="javascript:void(0);" class="btn btn-login btn-danger btn-float" ng-click="authenticate(loginForm)"><i class="zmdi zmdi-arrow-forward"></i></a>
+
+            <ul class="login-navigation">
+                <li data-block="#l-forget-password" class="bgm-orange" data-ng-click="login = 0; forgot = 1">Esqueceu a senha?</li>
+            </ul>
+        </form>
+    </div>
+
+    <!-- Forgot Password -->
+    <div class="lc-block" id="l-forget-password" data-ng-class="{ 'toggled': forgot === 1 }" data-ng-if="forgot === 1">
+        <p class="text-left">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla eu risus. Curabitur commodo lorem fringilla enim feugiat commodo sed ac lacus.</p>
+
+        <div class="input-group m-b-20">
+            <span class="input-group-addon"><i class="zmdi zmdi-email"></i></span>
+            <div class="fg-line">
+                <input type="text" class="form-control" placeholder="Email Address">
+            </div>
+        </div>
+
+        <a href="" class="btn btn-login btn-danger btn-float"><i class="zmdi zmdi-arrow-forward"></i></a>
+
+        <ul class="login-navigation">
+            <li data-block="#l-login" class="bgm-green" data-ng-click="forgot = 0; login = 1">Login</li>
+        </ul>
+    </div>
+

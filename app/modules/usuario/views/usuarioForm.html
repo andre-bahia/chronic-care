@@ -1,0 +1,218 @@
+<div class="container">
+    <ol class="breadcrumb" style="padding: 0;">
+        <li><a href="#">Home</a></li>
+        <li><a ui-sref="usuario-list">Usuários</a></li>
+        <li class="active">{{titlePage}}</li>
+    </ol>
+    <div class="card-body card-padding">
+    </div>
+    <div class="card">
+        <div class="card-header">
+            <h2> Cadastro de usuário </h2>
+        </div>
+        <div class="card-body card-padding" ng-cloak>
+            <form name="formUsuario" role="form" novalidate ng-submit="save(usuario)">
+                <!-- NOME -->
+                <div class="col-md-12">
+                    <div class="form-group fg-float m-b-30">
+                        <div class="fg-line" ng-class="{'fg-toggled': usuario.nome != null}">
+                            <input type="text" name="nome" class="form-control fg-input" ng-model="usuario.nome" ng-value="usuario.nome" required>
+                            <label class="fg-label">Nome<small style="color: red;">*</small></label>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <!-- SEXO -->
+                    <div class="form-group fg-float m-b-30">
+                        <div class="fg-line">
+                            <div class="select">
+                                <select class="form-control fg-input" ng-model="usuario.sexo" required>
+                                    <option value="">Selecione o sexo</option>
+                                    <option value="masculino">Masculino</option>
+                                    <option value="feminino">Feminino</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <!-- CPF -->
+                    <div class="form-group fg-float m-b-30">
+                        <div class="fg-line" ng-class="{'fg-toggled': usuario.cpf != null}">
+                            <input type="text" class="form-control fg-input" data-input-mask="{mask: '000.000.000-00'}" maxlength="14" autocomplete="off"
+                                   ng-model="usuario.cpf" ng-value="usuario.cpf" required>
+                            <label class="fg-label">CPF<small style="color: red;">*</small></label>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <!-- RG -->
+                    <div class="form-group fg-float m-b-30">
+                        <div class="fg-line" ng-class="{'fg-toggled': usuario.rg != null}">
+                            <input type="text" class="form-control fg-input" ng-model="usuario.rg" ng-value="usuario.rg">
+                            <label class="fg-label">RG</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <!-- DATA DE NASCIMENTO -->
+                    <div class="form-group fg-float m-b-30">
+                        <div class="fg-line" ng-class="{'fg-toggled': usuario.dataDeNascimento != null}">
+                            <input type="text" class="form-control fg-input" data-input-mask="{mask: '00/00/0000'}" maxlength="10" autocomplete="off"
+                                   ng-model="usuario.dataDeNascimento" ng-value="usuario.dataDeNascimento" required>
+                            <label class="fg-label">Data de nascimento<small style="color: red;">*</small></label>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <!-- Usuário -->
+                    <div class="form-group fg-float m-b-30">
+                        <div class="fg-line" ng-class="{'fg-toggled': usuario.usuario != null}">
+                            <input type="usuario" class="form-control fg-input" ng-model="usuario.usuario" required>
+                            <label class="fg-label">Usuário(login)<small style="color: red;">*</small></label>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <!-- Senha -->
+                    <div class="form-group fg-float m-b-30">
+                        <div class="fg-line" ng-class="{'fg-toggled': usuario.senha != null}">
+                            <input type="password" class="form-control fg-input" minlength="6"
+                                   ng-model="usuario.senha" required>
+                            <label class="fg-label">Senha<small style="color: red;">*</small></label>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <!-- Senha -->
+                    <div class="form-group fg-float m-b-30">
+                        <div class="fg-line" ng-class="{'fg-toggled': usuario.confirmaSenha != null}">
+                            <input type="password" class="form-control fg-input" minlength="6"
+                                   ng-model="usuario.confirmaSenha" required>
+                            <label class="fg-label">Confirma senha<small style="color: red;">*</small></label>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <!-- EMAIL -->
+                    <div class="form-group fg-float m-b-30">
+                        <div class="fg-line" ng-class="{'fg-toggled': usuario.email != null}">
+                            <input type="email" class="form-control fg-input" ng-model="usuario.email" required>
+                            <label class="fg-label">Email<small style="color: red;">*</small></label>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <!-- CELULAR -->
+                    <div class="form-group fg-float m-b-30">
+                        <div class="fg-line" ng-class="{'fg-toggled': usuario.celular != null}">
+                            <input type="text" class="form-control fg-input" data-input-mask="{mask: '(00) 00000-0000'}" maxlength="15" autocomplete="off"
+                                   ng-model="usuario.celular" ng-value="usuario.celular" required>
+                            <label class="fg-label">Celular<small style="color: red;">*</small></label>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <!-- TELEFONE -->
+                    <div class="form-group fg-float m-b-30">
+                        <div class="fg-line" ng-class="{'fg-toggled': usuario.telefone != null}">
+                            <input type="text" class="form-control fg-input" data-input-mask="{mask: '(00) 0000-0000'}" maxlength="14" autocomplete="off"
+                                   ng-model="usuario.telefone" ng-value="usuario.telefone">
+                            <label class="fg-label">Telefone</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <!-- CEP -->
+                    <div class="form-group fg-float m-b-30">
+                        <div class="fg-line" ng-class="{'fg-toggled': usuario.endereco.cep != null}">
+                            <input type="text" class="form-control fg-input" data-input-mask="{mask: '00000-000'}" maxlength="9" autocomplete="off"
+                                   ng-model="usuario.endereco.cep" ng-change="getCEP(usuario.endereco.cep)" required>
+                            <label class="fg-label">CEP<small style="color: red;">*</small></label>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <!-- ENDEREÇO -->
+                    <div class="form-group fg-float m-b-30">
+                        <div class="fg-line" ng-class="{'fg-toggled': usuario.endereco.logradouro != null}">
+                            <input type="text" class="form-control fg-input" ng-model="usuario.endereco.logradouro" disabled>
+                            <label class="fg-label">Logradouro<small style="color: red;">*</small></label>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <!-- BAIRRO -->
+                    <div class="form-group fg-float m-b-30">
+                        <div class="fg-line" ng-class="{'fg-toggled': usuario.endereco.bairro != null}">
+                            <input type="text" class="form-control fg-input" ng-model="usuario.endereco.bairro" disabled>
+                            <label class="fg-label">Bairro<small style="color: red;">*</small></label>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <!-- NÚMERO -->
+                    <div class="form-group fg-float m-b-30">
+                        <div class="fg-line" ng-class="{'fg-toggled': usuario.endereco.numero != null}">
+                            <input type="text" class="form-control fg-input" ng-model="usuario.endereco.numero">
+                            <label class="fg-label">Número<small style="color: red;">*</small></label>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <!-- CIDADE -->
+                    <div class="form-group fg-float m-b-30">
+                        <div class="fg-line" ng-class="{'fg-toggled': usuario.endereco.cidade != null}">
+                            <input type="text" class="form-control fg-input" ng-model="usuario.endereco.cidade" disabled>
+                            <label class="fg-label">Cidade<small style="color: red;">*</small></label>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <!-- ESTADO -->
+                    <div class="form-group fg-float m-b-30">
+                        <div class="fg-line" ng-class="{'fg-toggled': usuario.endereco.estado != null}">
+                            <input type="text" class="form-control fg-input" ng-model="usuario.endereco.estado" disabled>
+                            <label class="fg-label">Estado<small style="color: red;">*</small></label>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <!-- COMPLEMENTO -->
+                    <div class="form-group fg-float m-b-30">
+                        <div class="fg-line" ng-class="{'fg-toggled': usuario.endereco.complemento != null}">
+                            <input type="text" class="form-control fg-input" ng-model="usuario.endereco.complemento">
+                            <label class="fg-label">Complemento</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <!-- Perfil -->
+                    <div class="form-group fg-float m-b-30">
+                        <div class="fg-line">
+                            <div class="select">
+                                <select class="form-control fg-input" ng-model="usuario.perfilId" required>
+                                    <option value="">Selecione o perfil do usuário</option>
+                                    <option ng-repeat="p in profiles" value="{{ p.id }}">{{ p.nome }}</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="col-sm-4 m-b-20">
+                            <div class="toggle-switch" data-ts-color="green">
+                                <label for="ts4" class="ts-label">Status<small style="color: red;">*</small></label>
+                                <input id="ts4" type="checkbox" hidden="hidden" ng-model="usuario.status">
+                                <label for="ts4" class="ts-helper"></label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <a data-ui-sref="usuario-list" class="btn btn-danger btn-sm m-t-10">Cancelar</a>
+                <button type="submit" class="btn btn-primary btn-sm m-t-10" ng-disabled="formUsuario.$invalid">Salvar</button>
+            </form>
+        </div>
+    </div>
+</div>

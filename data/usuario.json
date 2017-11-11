@@ -1,0 +1,22 @@
+{
+  "id": 10,
+  "nome": "André Luis",
+  "cpf": "000.000.000-22",
+  "rg": "555555555",
+  "dataDeNascimento": "10/10/1990",
+  "celular": "(44) 9999-9999",
+  "telefone": "(44) 9999-9999",
+  "email": "teste@gmail.com",
+  "endereco": {
+    "cep": "000000000",
+    "logradouro": "Rua do arame",
+    "numero": 100,
+    "complemento": "Jardim bela vista",
+    "estado": "Paraná",
+    "cidade": "Maringá"
+  },
+  "status": true,
+  "usuario": "andre.luis",
+  "senha": "123mudar",
+  "imagem": ""
+}

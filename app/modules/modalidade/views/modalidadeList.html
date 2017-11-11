@@ -1,0 +1,43 @@
+<div class="container">
+  <div class="card-body card-padding">
+    <ol class="breadcrumb" style="padding: 0;">
+      <li><a href="#">Home</a></li>
+      <li class="active">Modalidades</li>      
+    </ol>
+  </div>
+  
+  <div class="card">
+    <div class="card-header">
+        <h2 >Modalidades <i class="zmdi zmdi-run"></i></h2>
+    </div>
+
+    <div class="table-responsive">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Nome</th>
+            <th>Valor</th>
+            <th>Status</th>
+            <th style="text-align: center;">
+              <a ui-sref="modalidade-create" class="btn bgm-green waves-effect">Novo Registro <i class="zmdi zmdi-plus-circle-o zmdi-hc-fw"></i></a>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="m in modalidades">
+            <td>{{m.id}}</td>
+            <td>{{m.nome}}</td>
+            <td>{{m.valor}}</td>
+            <td ng-if="m.status"><i class="zmdi zmdi-check" style="color: green;"></i></td>
+            <td ng-if="!m.status"><i class="zmdi zmdi-close" style="color: red;"></i></td>
+            <td style="text-align: center">
+              <a  ui-sref="modalidade-edit({id: m.id})" class="btn btn-info waves-effect"><i class="zmdi zmdi-edit"></i> </a>
+              <a href="javascript:void(0);" class="btn btn-danger waves-effect" ng-click="confirmRemove(m.id)"> <i class="zmdi zmdi-delete"></i></a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

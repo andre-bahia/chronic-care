@@ -1,0 +1,37 @@
+<div class="container">
+  <div class="card-body card-padding">
+    <ol class="breadcrumb" style="padding: 0;">
+      <li><a href="#">Home</a></li>
+      <li class="active">Pacientes</li>      
+    </ol>
+  </div>
+  
+  <div class="card">
+    <div class="card-header">
+        <h2 >Pacientes <i class="zmdi zmdi-face"></i></h2>
+    </div>
+
+    <div class="table-responsive">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Nome</th>
+            <th>Cpf</th>
+            <th style="text-align: center;">
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="p in pacientes">
+            <td>{{p.nome}}</td>
+            <td>{{p.cpf}}</td>
+            <td style="text-align: center">
+              <a  ui-sref="paciente-edit({id: m.id})" class="btn btn-info waves-effect"><i class="zmdi zmdi-edit"></i> </a>
+              <a href="javascript:void(0);" class="btn btn-danger waves-effect" ng-click="confirmRemove(m.id)"> <i class="zmdi zmdi-delete"></i></a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

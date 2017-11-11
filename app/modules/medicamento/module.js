@@ -1,0 +1,1 @@
+var medicamento = angular.module("medicamento", []);

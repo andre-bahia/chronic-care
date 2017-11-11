@@ -1,0 +1,5 @@
+node_modules
+bower_components
+.idea/
+app/modules/base/services/localConfiguration.js
+npm-debug.log

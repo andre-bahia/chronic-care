@@ -1,0 +1,49 @@
+<div class="sidebar-inner c-overflow">
+    <div class="profile-menu">
+        <a href="" toggle-submenu>
+            <div class="profile-pic">
+                <img src="assets/img/japones.png" alt="">
+            </div>
+
+            <div class="profile-info">
+                {{ userState.username }}
+                <i class="zmdi zmdi-caret-down"></i>
+            </div>
+        </a>
+
+        <ul class="main-menu">
+            <li>
+                <a data-ui-sref="pages.profile.profile-about" data-ng-click="mactrl.sidebarStat($event)"><i class="zmdi zmdi-account"></i> Meu perfil</a>
+            </li>
+            <li>
+                <a href=""><i class="zmdi zmdi-settings"></i> Configuraçoes</a>
+            </li>
+            <li>
+                <a href="javascript:void(0);" ng-click="logout();"><i class="zmdi zmdi-time-restore"></i> Sair</a>
+            </li>
+        </ul>
+    </div>
+
+    <ul class="main-menu">
+        <li data-ui-sref-active="active">
+            <a data-ui-sref="home" data-ng-click="mactrl.sidebarStat($event)"><i class="zmdi zmdi-home"></i> Home</a>
+        </li>
+        <li>
+            <a data-ui-sref="paciente-list" data-ng-click="mactrl.sidebarStat($event)"><i class="zmdi zmdi-face"></i> Pacientes</a>
+        </li>
+        <li>
+            <a data-ui-sref="medicamento-list" data-ng-click="mactrl.sidebarStat($event)"><i class="zmdi zmdi-apps"></i> Medicamentos</a>
+        </li>
+        <li>
+            <a data-ui-sref="acompanhamento-list" data-ng-click="mactrl.sidebarStat($event)"><i class="zmdi zmdi-time-restore-setting"></i> Acompanhamentos</a>
+        </li>
+        <!--<li class="sub-menu" data-ng-class="{ 'active toggled': mactrl.$state.includes('headers') }">
+            <a href="" toggle-submenu><i class="zmdi zmdi-view-compact"></i> Headers</a>
+            <ul>
+                <li><a data-ui-sref-active="active" data-ui-sref="headers.textual-menu" data-ng-click="mactrl.sidebarStat($event)">Textual menu</a></li>
+                <li><a data-ui-sref-active="active" data-ui-sref="headers.image-logo" data-ng-click="mactrl.sidebarStat($event)">Image logo</a></li>
+                <li><a data-ui-sref-active="active" data-ui-sref="headers.mainmenu-on-top" data-ng-click="mactrl.sidebarStat($event)">Mainmenu on top</a></li>
+            </ul>
+        </li>-->
+    </ul>
+</div>

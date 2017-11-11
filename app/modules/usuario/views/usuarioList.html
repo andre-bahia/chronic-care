@@ -1,0 +1,47 @@
+<div class="container">
+  <div class="card-body card-padding">
+    <ol class="breadcrumb" style="padding: 0;">
+      <li><a href="#">Home</a></li>
+      <li class="active">Usuários</li>
+    </ol>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+        <h2 >Usuários <i class="zmdi zmdi-face"></i></h2>
+    </div>
+
+    <div class="table-responsive">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Nome</th>
+            <th>Email</th>
+            <th>Perfil</th>
+            <th>Status</th>
+            <th style="text-align: center;">
+              <a ui-sref="usuario-create" class="btn bgm-green waves-effect">Novo usuário <i class="zmdi zmdi-plus-circle-o zmdi-hc-fw"></i></a>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="u in usuarios">
+            <td>{{u.id}}</td>
+            <td>{{u.nome}}</td>
+            <td>{{u.email}}</td>
+            <td ng-if="u.perfilId == 1">Aluno</td>
+            <td ng-if="u.perfilId == 2">Professor</td>
+            <td ng-if="u.perfilId == 3">Administrador</td>
+            <td ng-if="u.status"><i class="zmdi zmdi-check" style="color: green;"></i></td>
+            <td ng-if="!u.status"><i class="zmdi zmdi-close" style="color: red;"></i></td>
+            <td style="text-align: center">
+              <a  ui-sref="usuario-edit({id: u.id})" class="btn btn-info waves-effect"><i class="zmdi zmdi-edit"></i> </a>
+              <a href="javascript:void(0);" class="btn btn-danger waves-effect" ng-click="remove(u.id)"> <i class="zmdi zmdi-delete"></i></a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

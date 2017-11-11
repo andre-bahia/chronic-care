@@ -1,0 +1,23 @@
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0; 
+}
+
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+    display: none !important;
+}
+
+.dtp div.dtp-picker {
+    padding: 0px !important;
+}
+
+.dtp table.dtp-picker-days {
+    min-height: 220px;
+    margin-top: 0 !important;
+    margin-left: -28px !important;
+    margin-right: 0 !important;;
+    margin-bottom: 0 !important;;
+}
