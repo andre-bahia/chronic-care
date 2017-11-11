@@ -10,6 +10,7 @@
     <div class="card-header">
       <h2></h2>
     </div>
+    {{ acompanhamento }}
     <div class="card-body card-padding">
       <form name="formacompanhamento" role="form" novalidate ng-submit="save(acompanhamento)">
         <div class="form-group fg-float m-b-30">
@@ -27,14 +28,59 @@
             </select>
         </div>
         <div class="row">
-          <div class="col-sm-4 m-b-20">
-            <div class="toggle-switch" data-ts-color="green">
-              <label for="ts4" class="ts-label">Status<small style="color: red;">*</small></label>
-              <input id="ts4" type="checkbox" hidden="hidden" ng-model="acompanhamento.status">
-              <label for="ts4" class="ts-helper"></label>
+          <div class="col-sm-6 m-b-20">
+              <div class="form-group">
+                <label for="sel1">Doença Crónica</label>
+                <select ng-model="acompanhamento.tipoAcompanhamento" class="form-control fg-input" ng-change="showDiv(acompanhamento.tipoAcompanhamento)">
+                  <option value=""></option>                    
+                  <option value="2">Hipertensão</option>
+                  <option value="1">Diabetes</option>
+                </select>
+              </div>
+          </div>
+
+          <div class="col-sm-6 m-b-20">
+              <div class="form-group">
+                  <label for="sel1">Periodo de observação</label>
+                  <input type="number" class="form-control fg-input" name="acompanhamento.periodo">
+              </div>
+          </div>
+        </div>
+        <div class="row" ng-show="glicemia">
+          <div class="col-sm-6">
+            <div class="form-group">
+              <label for="">Glicemia</label>
+              <div class="form-group">
+                  <input type="text" class="form-control" placeholder="Alta" ng-model="acompanhamento.glicoseAlta">                  
+              </div>
+              <div class="form-group">
+                  <input type="text" class="form-control" placeholder="Baixa" ng-model="acompanhamento.glicoseBaixa">                  
+              </div>
             </div>
           </div>
         </div>
+        <div class="row" ng-show="pressaoArterial">
+              <div class="form-group">
+                  <div class="col-sm-6">
+                    <label for="">Pressão Arterial</label>
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Sistólica minima" ng-model="acompanhamento.pressaoAltaMinima">                  
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Sistólica máxima" ng-model="acompanhamento.pressaoAltaMaxima">                  
+                    </div>
+                  </div>
+                  <div class="col-sm-6">
+                      <label for=""> </label>                      
+                      <div class="form-group">
+                          <input type="text" class="form-control" placeholder="Diastólica minima" ng-model="acompanhamento.pressaoBaixaMinima">                  
+                      </div>
+                      <div class="form-group">
+                          <input type="text" class="form-control" placeholder="Diastólica máxima" ng-model="acompanhamento.pressaoBaixaMaxima">                  
+                      </div>
+                  </div>                      
+            </div>
+          </div>
         <button type="submit" class="btn btn-primary btn-sm m-t-10" ng-disabled="formacompanhamento.$invalid">Salvar</button>
       </form>
     </div>

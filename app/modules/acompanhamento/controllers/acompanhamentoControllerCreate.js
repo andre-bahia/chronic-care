@@ -7,9 +7,21 @@ function acompanhamentoControllerCreate($scope,
                                         toaster, 
                                         pacienteService,
                                         medicamentoService) {
+                                            
+                                            $scope.pacienteSelecionado;
+                                            $scope.remedioSelecionado;    
+                                            getPacientes();
+                                            getRemedios();
+
+
     
     function save(acompanhamento)
     {
+        acompanhamento.idPaciente = $scope.pacienteSelecionado.id;
+        acompanhamento.idRemedio = $scope.remedioSelecionado.id;    
+
+        console.log(acompanhamento);
+        
         var promise = acompanhamentoService.save(acompanhamento);
         promise.then(onLoadSuccess);
         promise.catch(onLoadError);
@@ -42,8 +54,23 @@ function acompanhamentoControllerCreate($scope,
         });
     }
 
+    $scope.showDiv = function(nameDiv) {
+        console.log(nameDiv);
+        if(nameDiv === '2' ) {
+            $scope.pressaoArterial = true;
+            $scope.glicemia = false;
+            
+        } else {
+            $scope.pressaoArterial = false;            
+            $scope.glicemia = true;
+        }
+    }
+
     $scope.save = save;
     $scope.pacientes = [];
+    $scope.remedios = [];    
+    $scope.pressaoArterial = false;
+    $scope.glicemia = false;
     $scope.acompanhamento = new AcompanhamentoModel();
     $scope.titlePage = "Cadastrar acompanhamento";
 
