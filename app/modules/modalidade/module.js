@@ -1,1 +1,0 @@
-var modalidade = angular.module("modalidade", []);
